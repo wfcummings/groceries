@@ -62,7 +62,14 @@ function getSkus(items) {
  * @returns {Item[]} all items in the "fruit" category
  */
 function getFruits(items) {
-  // TODO
+  let fruit = [];
+
+  for (const item of items) {
+    if (item.category === "fruit") {
+      fruit.pop(item.name);
+    }
+  }
+  return fruit;
 }
 
 /**
