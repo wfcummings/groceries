@@ -78,7 +78,11 @@ function getFruits(items) {
  * @returns {Item[]} all items in the given category
  */
 function getItemsByCategory(items, category) {
-  // TODO
+  for (const item of items) {
+    if (item.category === category) {
+      return item.name;
+    }
+  }
 }
 
 /**
