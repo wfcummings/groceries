@@ -90,7 +90,13 @@ function getItemsByCategory(items, category) {
  * @param {Item[]} items
  * @returns {Item[]} all cheap items
  */
-function getCheapItems(items) {}
+function getCheapItems(items) {
+  for (const item of items) {
+    if (item.price <= 2.5) {
+      return item.name;
+    }
+  }
+}
 
 /**
  * @param {Item[]} items
