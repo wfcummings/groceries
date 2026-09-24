@@ -90,16 +90,19 @@ function getItemsByCategory(items, category) {
  * @param {Item[]} items
  * @returns {Item[]} all cheap items
  */
-function getCheapItems(items) {
-  // TODO
-}
+function getCheapItems(items) {}
 
 /**
  * @param {Item[]} items
  * @returns {number} the total quantity of all items given
  */
 function countItems(items) {
-  // TODO
+  let total = 0;
+
+  for (const item of items) {
+    total += item.quantity;
+  }
+  return total;
 }
 
 /**
