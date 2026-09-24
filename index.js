@@ -52,7 +52,9 @@ function getCategories(items) {
  * @returns {string[]} SKUs of given items
  */
 function getSkus(items) {
-  // TODO
+  for (const item of items) {
+    return `"${item.id}#${item.name}#${item.name.length}`;
+  }
 }
 
 /**
