@@ -28,11 +28,13 @@ const INVENTORY = [
  */
 
 function getIds(items) {
-  return items.map((item) => item.id);
+  // return items.map((item) => item.id);
+  let answer = [];
 
-  /*for (const item of items) {
-    return item.id;
-  }*/
+  for (const item of items) {
+    answer.push(item.id);
+  }
+  return answer;
 }
 
 /**
