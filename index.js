@@ -26,10 +26,13 @@ const INVENTORY = [
  * @param {Item[]} items
  * @returns {number[]} ids of given items
  */
+
 function getIds(items) {
-  for (const item of items) {
+  return items.map((item) => item.id);
+
+  /*for (const item of items) {
     return item.id;
-  }
+  }*/
 }
 
 /**
@@ -37,9 +40,10 @@ function getIds(items) {
  * @returns {string[]} categories of given items
  */
 function getCategories(items) {
-  for (const item of items) {
+  return items.map((item) => item.category);
+  /* for (const item of items) {
     return item.category;
-  }
+  }*/
 }
 
 /**
@@ -52,9 +56,10 @@ function getCategories(items) {
  * @returns {string[]} SKUs of given items
  */
 function getSkus(items) {
-  for (const item of items) {
+  return items.map((item) => `${item.id}#${item.name}#${item.name.length}`);
+  /*for (const item of items) {
     return `"${item.id}#${item.name}#${item.name.length}`;
-  }
+  }*/
 }
 
 /**
@@ -65,24 +70,26 @@ function getFruits(items) {
   let fruit = [];
 
   for (const item of items) {
-    if (item.category === "fruit") {
+    return items.filter((item) => item.category === "fruit");
+    /*if (item.category === "fruit") {
       fruit.pop(item.name);
     }
   }
-  return fruit;
+  return fruit;*/
+  }
 }
-
 /**
  * @param {Item[]} items
  * @param {string} category
  * @returns {Item[]} all items in the given category
  */
 function getItemsByCategory(items, category) {
-  for (const item of items) {
+  return items.filter((item) => item.category === category);
+  /*for (const item of items) {
     if (item.category === category) {
       return item.name;
     }
-  }
+  }*/
 }
 
 /**
@@ -91,11 +98,12 @@ function getItemsByCategory(items, category) {
  * @returns {Item[]} all cheap items
  */
 function getCheapItems(items) {
-  for (const item of items) {
+  return items.filter((item) => item.price <= 2.5);
+  /*for (const item of items) {
     if (item.price <= 2.5) {
       return item.name;
     }
-  }
+  }*/
 }
 
 /**
@@ -103,12 +111,13 @@ function getCheapItems(items) {
  * @returns {number} the total quantity of all items given
  */
 function countItems(items) {
-  let total = 0;
+  return items.reduce((count, item) => count + item.quantity, 0);
+  /*let total = 0;
 
   for (const item of items) {
     total += item.quantity;
   }
-  return total;
+  return total;*/
 }
 
 /**
@@ -116,12 +125,14 @@ function countItems(items) {
  * @returns {number} the cost of purchasing every single item
  */
 function getTotalCost(items) {
-  let cost = 0;
+  return items.reduce((total, item) => total + item.price * item.quantity, 0);
+
+  /*let cost = 0;
 
   for (const item of items) {
     cost += item.price * item.quantity;
   }
-  return cost;
+  return cost;*/
 }
 
 /**
@@ -129,9 +140,13 @@ function getTotalCost(items) {
  * @returns {Item} the item with the highest price
  */
 function getMostExpensiveItem(items) {
-  const mostExpensive = "";
+  return items.reduce((mostExpensive, item) =>
+    item.price > mostExpensive.price ? item : mostExpensive,
+  );
+
+  /*const mostExpensive = "";
   for (const item in items) {
     mostExpensive = Math.max(item.price);
   }
-  return mostExpensive;
+  return mostExpensive;*/
 }
