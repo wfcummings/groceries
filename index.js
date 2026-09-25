@@ -50,7 +50,6 @@ function getCategories(items) {
   }
   return answer;
 }
-console.debug(getCategories(INVENTORY));
 /**
  * Vendors often use SKUs (Stock Keeping Units) to manage their inventory.
  * SKU formats are not standardized, so for this exercise, we will use the format
