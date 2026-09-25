@@ -42,12 +42,15 @@ function getIds(items) {
  * @returns {string[]} categories of given items
  */
 function getCategories(items) {
-  return items.map((item) => item.category);
-  /* for (const item of items) {
-    return item.category;
-  }*/
-}
+  //return items.map((item) => item.category);
 
+  let answer = [];
+  for (const item of items) {
+    answer.push(item.category);
+  }
+  return answer;
+}
+console.debug(getCategories(INVENTORY));
 /**
  * Vendors often use SKUs (Stock Keeping Units) to manage their inventory.
  * SKU formats are not standardized, so for this exercise, we will use the format
