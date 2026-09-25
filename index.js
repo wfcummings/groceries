@@ -116,7 +116,12 @@ function countItems(items) {
  * @returns {number} the cost of purchasing every single item
  */
 function getTotalCost(items) {
-  // TODO
+  let cost = 0;
+
+  for (const item of items) {
+    cost += item.price * item.quantity;
+  }
+  return cost;
 }
 
 /**
@@ -124,5 +129,9 @@ function getTotalCost(items) {
  * @returns {Item} the item with the highest price
  */
 function getMostExpensiveItem(items) {
-  // TODO
+  const mostExpensive = "";
+  for (const item in items) {
+    mostExpensive = Math.max(item.price);
+  }
+  return mostExpensive;
 }
