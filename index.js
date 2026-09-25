@@ -60,12 +60,14 @@ function getCategories(items) {
  * @returns {string[]} SKUs of given items
  */
 function getSkus(items) {
-  return items.map((item) => `${item.id}#${item.name}#${item.name.length}`);
-  /*for (const item of items) {
-    return `"${item.id}#${item.name}#${item.name.length}`;
-  }*/
-}
+  //return items.map((item) => `${item.id}#${item.name}#${item.name.length}`);
+  let answer = [];
 
+  for (const item of items) {
+    answer.push(`${item.id}#${item.name}#${item.name.length}`);
+  }
+  return answer;
+}
 /**
  * @param {Item[]} items
  * @returns {Item[]} all items in the "fruit" category
